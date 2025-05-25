@@ -9,6 +9,7 @@ extern Program ast_root;
 extern IdTable idtable;
 extern IntTable inttable;
 extern StrTable stringtable;
+extern int semant_errors;
 
 extern int curr_lineno;
 const char *curr_filename = "<stdin>";
@@ -42,19 +43,13 @@ int main(int argc, char **argv)
             std::exit(1);
         }
 
-        // std::cout << "AST dump with types from file: " << curr_filename << '\n';
-         ast_root->dump_with_types(std::cerr, 1);
-        // /* TODO: dump AST tree (ast_root) to std::cerr */
-        // std::cout << "Symbol tables:\nID table:\n";
-        idtable.print();
-        std::cout << "Int table:\n";
-        inttable.print();
-        std::cout << "String table:\n";
-        stringtable.print();
-
         std::fclose(token_file);
     }
     semant();
+    if (semant_errors != 0) {
+        std::cerr << "Code have some semantic errors\n";
+        std::exit(1);
+    }
     
 
     return 0;

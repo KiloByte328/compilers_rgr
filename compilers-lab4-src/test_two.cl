@@ -1,6 +1,6 @@
 class Main {
     a() : Int {
-        33 + newID
+        33
     };
     x : Int <- 22;
 };
@@ -26,15 +26,19 @@ class Absurd {
     thirdNewStr(x : Int) : Int {
         x <- 21
     };
+    fourthNewStr (newID : String) : String {
+        "Someting String"
+    };
 };
 
 class Something inherits Absurd {
     doSmth(i : Int) : Int {
-        42 / 2
+        i / 2
     };
     dosmthwhile() : Int {
         while 1 loop 42 / 2 pool
     };
+    newID : Int <- 21;
     fthr() : Int {
         3 + 5
     };

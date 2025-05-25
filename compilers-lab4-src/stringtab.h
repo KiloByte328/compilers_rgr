@@ -67,8 +67,10 @@ public:
 
    // Iterator
    int first();
+   int get_index();
    int more(int i);
    int next(int i);
+   List<Elem>* get_list();
    Elem *lookup(int index);      // lookup an element using its index
    Elem *lookup_string(char *s); // lookup an element using its string
    void print();                 // print table
@@ -114,12 +116,23 @@ Elem *StringTable<Elem>::lookup_string(char *s)
 }
 
 template <class Elem>
+List<Elem>* StringTable<Elem>::get_list() {
+    return tbl;
+}
+
+template <class Elem>
 Elem *StringTable<Elem>::lookup(int ind)
 {
     for (List<Elem> *l = tbl; l; l = l->tl())
         if (l->hd()->equal_index(ind))
             return l->hd();
     return nullptr;
+}
+
+template <class Elem>
+int StringTable<Elem>::get_index() 
+{
+    return index;
 }
 
 template <class Elem>

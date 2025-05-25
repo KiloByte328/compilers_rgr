@@ -221,6 +221,7 @@ public:
    Feature copy_Feature();
    void dump(std::ostream &  stream, int n);
    Symbol get_name();
+   Symbol get_type();
    Expression get_expr();
 
 #ifdef Feature_SHARED_EXTRAS

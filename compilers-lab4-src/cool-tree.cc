@@ -187,6 +187,10 @@ Symbol static_dispatch_class::get_type()
    return type_name;
 }
 
+Symbol attr_class::get_type() {
+   return type_decl;
+}
+
 void static_dispatch_class::dump(std::ostream &  stream, int n)
 {
     stream << pad(n) << "static_dispatch\n";
